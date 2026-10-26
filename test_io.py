@@ -191,11 +191,12 @@ class IO(unittest.TestCase):
                 self.assertEqual(2,self.invoke("--component","brotli=1.2.1","--output",str(path),"--force",*options)[0])
             self.assertEqual(before,path.read_bytes())
         bundled=Path(c.__file__).parent/"assets"/"logo.png"
-        alias=self.root/"bundled-alias.png"
-        alias.hardlink_to(bundled)
-        before=bundled.read_bytes()
-        self.assertEqual(2,self.invoke("--component","brotli=1.2.1","--brand","Other Organization","--output",str(alias),"--force")[0])
-        self.assertEqual(before,bundled.read_bytes())
+        with tempfile.TemporaryDirectory(dir=bundled.parent) as alias_dir:
+            alias=Path(alias_dir)/"bundled-alias.png"
+            alias.hardlink_to(bundled)
+            before=bundled.read_bytes()
+            self.assertEqual(2,self.invoke("--component","brotli=1.2.1","--brand","Other Organization","--output",str(alias),"--force")[0])
+            self.assertEqual(before,bundled.read_bytes())
 
     def test_logo_validation_and_missing_output_parent(self):
         bad=self.root/"bad.png"
