@@ -1,0 +1,4 @@
+interface:
+  display_name: "Brotli Exposure Check"
+  short_description: "Assess local Brotli exposure with conservative evidence"
+  default_prompt: "Use $http2shell-check to assess my authorized local inventory and report findings, unknowns and the rule date."

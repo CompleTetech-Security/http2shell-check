@@ -1,0 +1,102 @@
+{
+  "complete": true,
+  "counts": {
+    "fixed_version_reported": 1,
+    "potentially_affected": 1,
+    "unknown": 0,
+    "unsupported_runtime": 0
+  },
+  "coverage": [
+    "pip-list: 3 package records; only Brotli/brotlicffi selected; loaded code unknown"
+  ],
+  "coverage_limitations": [
+    "No exhaustive discovery of installed, loaded, bundled or deployed copies.",
+    "Red Hat and other unimplemented vendor builds require exact vendor errata; no generic distribution comparison.",
+    "Python versions below the shared advisory lower bound remain disputed and unknown.",
+    "Envoy older patches not explicitly named in its advisory remain unknown.",
+    "curl/libcurl and cdxgen product versions are not mapped to their bundled decoder/runtime."
+  ],
+  "cve": "CVE-2026-111497",
+  "generated_at": "2026-10-26T01:25:46+00:00",
+  "operational_errors": [],
+  "results": [
+    {
+      "assessed_at": "2026-10-26T01:25:46+00:00",
+      "asset": "unspecified",
+      "build_source": "unknown",
+      "configuration": "unknown",
+      "cve": "CVE-2026-111497",
+      "decoder": "unknown",
+      "ecosystem": "PyPI",
+      "evidence_origin": "installed_metadata",
+      "exploitability": "not_tested",
+      "fixed_version": "1.2.1",
+      "id": "component-1",
+      "limitations": [
+        "Reported metadata does not attest deployed patches or decoder reachability.",
+        "Observation time was not supplied; assessment time is separate."
+      ],
+      "linkage": "unknown",
+      "loaded": "unknown",
+      "mitigation": "unknown",
+      "observed_at": "",
+      "package": "brotli",
+      "patch_evidence": "unknown",
+      "product": "python-brotli",
+      "reachability": "unknown",
+      "reason": "reported_version_in_affected_interval",
+      "release": "",
+      "remediation": "Verify the exact deployed package and vendor advisory. Upgrade to a fixed maintained release; rebuild bundled artifacts/images, redeploy, restart, and verify the running component. Review inbound requests, outbound responses and direct decoding independently.",
+      "rule_ecosystem": "PyPI",
+      "rules_as_of": "2026-10-25",
+      "schema_version": 1,
+      "sources": [
+        "https://github.com/pypa/advisory-database/blob/main/vulns/brotli/PYSEC-2026-4322.yaml"
+      ],
+      "status": "potentially_affected",
+      "vendor": "unknown",
+      "version": "1.2.0"
+    },
+    {
+      "assessed_at": "2026-10-26T01:25:46+00:00",
+      "asset": "unspecified",
+      "build_source": "unknown",
+      "configuration": "unknown",
+      "cve": "CVE-2026-111497",
+      "decoder": "unknown",
+      "ecosystem": "PyPI",
+      "evidence_origin": "installed_metadata",
+      "exploitability": "not_tested",
+      "fixed_version": "1.2.1.0",
+      "id": "component-2",
+      "limitations": [
+        "Reported metadata does not attest deployed patches or decoder reachability.",
+        "Observation time was not supplied; assessment time is separate."
+      ],
+      "linkage": "unknown",
+      "loaded": "unknown",
+      "mitigation": "unknown",
+      "observed_at": "",
+      "package": "brotlicffi",
+      "patch_evidence": "unknown",
+      "product": "brotlicffi",
+      "reachability": "unknown",
+      "reason": "reported_version_meets_branch_fix",
+      "release": "",
+      "remediation": "Verify the exact deployed package and vendor advisory. Upgrade to a fixed maintained release; rebuild bundled artifacts/images, redeploy, restart, and verify the running component. Review inbound requests, outbound responses and direct decoding independently.",
+      "rule_ecosystem": "PyPI",
+      "rules_as_of": "2026-10-25",
+      "schema_version": 1,
+      "sources": [
+        "https://github.com/pypa/advisory-database/blob/main/vulns/brotlicffi/PYSEC-2026-4323.yaml"
+      ],
+      "status": "fixed_version_reported",
+      "vendor": "unknown",
+      "version": "1.2.1.0"
+    }
+  ],
+  "rules_as_of": "2026-10-25",
+  "schema_version": 1,
+  "tool": "http2shell-check",
+  "tool_version": "1.0.0"
+}

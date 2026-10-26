@@ -1,0 +1,9 @@
+__pycache__/
+*.pyc
+.venv/
+runtime.json
+runtime-assessment.json
+report.*
+private/
+.http2shell-*
+CONCURRENT_SESSION_HANDOFF.md

@@ -1,0 +1,68 @@
+{
+  "complete": true,
+  "counts": {
+    "fixed_version_reported": 1,
+    "potentially_affected": 0,
+    "unknown": 0,
+    "unsupported_runtime": 0
+  },
+  "coverage": [
+    "Node collector describes its own process, not verified serving processes; platform/architecture not retained"
+  ],
+  "coverage_limitations": [
+    "No exhaustive discovery of installed, loaded, bundled or deployed copies.",
+    "Red Hat and other unimplemented vendor builds require exact vendor errata; no generic distribution comparison.",
+    "Python versions below the shared advisory lower bound remain disputed and unknown.",
+    "Envoy older patches not explicitly named in its advisory remain unknown.",
+    "curl/libcurl and cdxgen product versions are not mapped to their bundled decoder/runtime."
+  ],
+  "cve": "CVE-2026-111497",
+  "generated_at": "2026-10-26T01:25:46+00:00",
+  "operational_errors": [],
+  "results": [
+    {
+      "assessed_at": "2026-10-26T01:25:46+00:00",
+      "asset": "api.example.com synthetic collector",
+      "brotli_block_switch_error": -17,
+      "brotli_decompress_available": true,
+      "brotli_version": "1.2.0",
+      "build_source": "unknown",
+      "configuration": "unknown",
+      "cve": "CVE-2026-111497",
+      "decoder": "unknown",
+      "ecosystem": "runtime",
+      "evidence_origin": "installed_metadata",
+      "exploitability": "not_tested",
+      "fixed_version": "24.22.1",
+      "id": "node-1",
+      "limitations": [
+        "Reported metadata does not attest deployed patches or decoder reachability.",
+        "Observation time was not supplied; assessment time is separate."
+      ],
+      "linkage": "bundled",
+      "loaded": "unknown",
+      "mitigation": "unknown",
+      "observed_at": "",
+      "package": "",
+      "patch_evidence": "unknown",
+      "product": "node",
+      "reachability": "unknown",
+      "reason": "reported_version_meets_branch_fix",
+      "release": "",
+      "remediation": "Verify the exact deployed package and vendor advisory. Upgrade to a fixed maintained release; rebuild bundled artifacts/images, redeploy, restart, and verify the running component. Review inbound requests, outbound responses and direct decoding independently.",
+      "rule_ecosystem": "runtime",
+      "rules_as_of": "2026-10-25",
+      "schema_version": 1,
+      "sources": [
+        "https://nodejs.org/en/blog/vulnerability/october-2026-security-releases"
+      ],
+      "status": "fixed_version_reported",
+      "vendor": "unknown",
+      "version": "24.22.1"
+    }
+  ],
+  "rules_as_of": "2026-10-25",
+  "schema_version": 1,
+  "tool": "http2shell-check",
+  "tool_version": "1.0.0"
+}

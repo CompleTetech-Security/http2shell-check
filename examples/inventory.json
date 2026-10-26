@@ -1,0 +1,12 @@
+{
+  "schema_version": 1,
+  "coverage": "Synthetic partial export; no targets contacted and no loaded-code attestation",
+  "components": [
+    {"asset": "api.example.com", "id": "python-worker", "product": "python-brotli", "ecosystem": "PyPI", "package": "brotli", "version": "1.2.0", "evidence_origin": "installed_metadata", "linkage": "bundled", "decoder": "capability not independently verified", "reachability": "outbound response decoding requires review", "observed_at": "2026-10-25T20:00:00Z"},
+    {"asset": "gateway.example.com", "id": "envoy-proxy", "product": "envoy", "ecosystem": "proxy", "version": "1.39.2", "evidence_origin": "operator_inventory", "configuration": "Brotli decompressor reported enabled", "observed_at": "2026-10-25T20:00:00Z"},
+    {"asset": "api.example.com", "id": "native-fixed-copy", "product": "brotli", "ecosystem": "native", "version": "1.1.1", "evidence_origin": "installed_metadata", "linkage": "system", "observed_at": "2026-10-25T20:00:00Z"},
+    {"asset": "worker.example.com", "id": "vendor-custom", "product": "node", "ecosystem": "runtime", "version": "24.22.1", "build_source": "custom", "evidence_origin": "operator_inventory", "observed_at": "2026-10-25T20:00:00Z"},
+    {"asset": "legacy.example.com", "id": "node-legacy", "product": "node", "ecosystem": "runtime", "version": "20.19.0", "evidence_origin": "installed_metadata", "observed_at": "2026-10-25T20:00:00Z"},
+    {"asset": "batch.example.com", "id": "declared-only", "product": "brotlicffi", "ecosystem": "PyPI", "version": "1.2.1.0", "evidence_origin": "declared", "observed_at": "2026-10-25T20:00:00Z"}
+  ]
+}
