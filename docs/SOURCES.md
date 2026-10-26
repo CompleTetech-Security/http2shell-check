@@ -31,6 +31,8 @@ The original decoder commit was resolved through GitHub's commit API from abbrev
 
 Requires product=debian-brotli, vendor=Debian, package=brotli, build_source=distribution and matching release. Other versions are unknown; no dpkg/RPM comparator or monotonic vendor inference exists. These are source package records, not evidence that a particular binary package is installed/loaded. The tracker separately lists Node.js as affected; updating libbrotli alone must not clear Node.
 
+Non-unknown patch evidence requires provenance review before either an affected or fixed exact-match classification. A custom rebuild may retain a Debian version label without retaining its patch set; supplied patch claims alone establish neither affectedness nor remediation.
+
 ## Disagreements and unresolved coverage
 
 PyPA marks package histories affected from zero, while GHSA uses a 1.0.3 lower bound. We do not choose a broader assertion from this disagreement: earlier package releases remain unknown, with the shared range enabled. Native fixed maintenance releases do not automatically apply to PyPI package histories. Four-part brotlicffi parsing is a documented subset; other legitimate package version forms remain unknown.

@@ -74,6 +74,20 @@ class Rules(unittest.TestCase):
                        {"vendor":"Debian", "package":"brotli", "build_source":"distribution", "release":"bullseye"}]:
             self.assertEqual("unknown", assess("debian-brotli", "1.0.9-2+deb12u1", **values)["status"])
 
+    def test_debian_patch_evidence_requires_review_for_affected_and_fixed_labels(self):
+        for release, versions in c.DEBIAN.items():
+            for version, fixed in versions.items():
+                provenance=dict(release=release,vendor="Debian",package="brotli",build_source="distribution")
+                expected="fixed_version_reported" if fixed else "potentially_affected"
+                self.assertEqual(expected,assess("debian-brotli",version,**provenance)["status"])
+                for evidence in ["custom rebuild; security patch omitted","backported patch reported",""]:
+                    with self.subTest(release=release,version=version,evidence=evidence):
+                        r=assess("debian-brotli",version,patch_evidence=evidence,**provenance)
+                        self.assertEqual("unknown",r["status"])
+                        self.assertEqual("patch_provenance_requires_review",r["reason"])
+                        self.assertEqual(evidence,r["patch_evidence"])
+                        self.assertEqual("not_tested",r["exploitability"])
+
     def test_patch_state_independent_of_use_and_linkage(self):
         for linkage in ["system", "bundled", "unknown"]:
             r = assess("brotli", "1.2.0", linkage=linkage, decoder="disabled", configuration="disabled", reachability="unreachable", mitigation="reject br before decoding")

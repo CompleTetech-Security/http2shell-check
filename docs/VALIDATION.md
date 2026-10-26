@@ -11,7 +11,7 @@ python http2shell_check.py --node-inventory examples/node-runtime.json --format 
 git diff --check
 ```
 
-The initial local suite includes 27 unittest methods with parameterized branch/identity cases. It covers every enabled branch boundary, uncertainty, separate copies, parser bounds, output escaping, formula safety, standalone execution in all formats, no network/process calls, input/alias/default-logo protection, atomic failure and interruption behavior. Tests use synthetic data and mocks only. Hosted CI runs the same suite on Linux/Windows/macOS with Python 3.10 and 3.14; the optional collector smoke job is separate. Local tests and hosted CI are distinct evidence.
+The local suite includes 28 unittest methods with parameterized branch/identity cases. It covers every enabled branch boundary, Debian patch-evidence uncertainty, separate copies, parser bounds, output escaping, formula safety, standalone execution in all formats, no network/process calls, input/alias/default-logo protection, atomic failure and interruption behavior. Tests use synthetic data and mocks only. Hosted CI runs the same suite on Linux/Windows/macOS with Python 3.10 and 3.14; the optional collector smoke job is separate. Local tests and hosted CI are distinct evidence.
 
 To regenerate the report, explicitly replace only the synthetic example:
 

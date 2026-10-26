@@ -250,6 +250,8 @@ def assess(record):
     if product == "debian-brotli":
         if r["vendor"].lower() != "debian" or r["package"] != "brotli" or r["build_source"] != "distribution":
             return verdict("unknown", "exact_debian_source_package_provenance_required")
+        if r["patch_evidence"] != "unknown":
+            return verdict("unknown", "patch_provenance_requires_review")
         fixed = DEBIAN.get(r["release"], {}).get(version)
         if fixed is None:
             return verdict("unknown", "debian_exact_snapshot_miss")
