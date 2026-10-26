@@ -416,11 +416,11 @@ def main(argv=None):
     published = False
     try:
         validate_tree(args.brand)
+        default_logo = Path(__file__).resolve().parent / "assets" / "logo.png"
         if args.brand == "CompleteTech LLC" and not args.logo:
-            default_logo = Path(__file__).resolve().parent / "assets" / "logo.png"
             if default_logo.is_file():
                 args.logo = str(default_logo)
-        protected = [Path(__file__).resolve(), *[Path(p).resolve() for p in
+        protected = [Path(__file__).resolve(), default_logo.resolve(), *[Path(p).resolve() for p in
                     args.inventory + args.pip_list + args.node_inventory]]
         if args.logo:
             protected.append(Path(args.logo).resolve())

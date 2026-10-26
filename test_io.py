@@ -187,8 +187,15 @@ class IO(unittest.TestCase):
     def test_default_logo_and_checker_protected(self):
         for path in [Path(c.__file__),Path(c.__file__).parent/"assets"/"logo.png"]:
             before=path.read_bytes()
-            self.assertEqual(2,self.invoke("--component","brotli=1.2.1","--output",str(path),"--force")[0])
+            for options in [[],["--brand","Other Organization"],["--logo",str(self.file({},"custom.png"))]]:
+                self.assertEqual(2,self.invoke("--component","brotli=1.2.1","--output",str(path),"--force",*options)[0])
             self.assertEqual(before,path.read_bytes())
+        bundled=Path(c.__file__).parent/"assets"/"logo.png"
+        alias=self.root/"bundled-alias.png"
+        alias.hardlink_to(bundled)
+        before=bundled.read_bytes()
+        self.assertEqual(2,self.invoke("--component","brotli=1.2.1","--brand","Other Organization","--output",str(alias),"--force")[0])
+        self.assertEqual(before,bundled.read_bytes())
 
     def test_logo_validation_and_missing_output_parent(self):
         bad=self.root/"bad.png"
